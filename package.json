@@ -16,7 +16,7 @@
   "name": "@mcrowe/rush",
   "repository": "https://github.com/mcrowe/rush",
   "scripts": {},
-  "version": "0.0.8",
+  "version": "0.0.9",
   "bin": {
     "rush": "bin/rush.js"
   }
