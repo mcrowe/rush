@@ -9,13 +9,17 @@
     <script>
       var socket = io();
       socket.on('reload', () => {
-        // document.location.reload();
+
+        console.log('Hot reloading...')
+
         fetch('/bundle.js?hot=1').then(res => res.text()).then(text => {
           eval(text)
+          console.log('Reloaded JS')
         })
 
         fetch('/bundle.css').then(res => res.text()).then(text => {
           document.getElementById('styles').innerHTML = text
+          console.log('Reloaded Styles')
         })
       })
     </script>
