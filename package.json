@@ -1,33 +1,22 @@
 {
   "author": "Mitch Crowe <code@mitchcrowe.com> (http://www.mitchcrowe.com)",
-  "ava": {
-    "files": [
-      "lib/**/*.test.js"
-    ],
-    "verbose": true
-  },
   "description": "Simple and fast front-end framework for prototyping or learning.",
   "dependencies": {
-
   },
   "devDependencies": {
-    "@types/node": "^8.0.34",
-    "ava": "^0.23.0",
-    "typescript": "^2.5.3"
   },
   "files": [
-    "lib/"
+    "lib/",
+    "bin/"
   ],
   "license": "ISC",
   "main": "lib/index.js",
   "name": "@mcrowe/rush",
   "repository": "https://github.com/mcrowe/rush",
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf lib/*",
-    "test": "ava",
-    "watch": "tsc -w"
   },
-  "typings": "lib/index",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "bin": {
+    "rush": "bin/rush.js"
+  }
 }
