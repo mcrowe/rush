@@ -10,9 +10,6 @@ read version
 echo "Updating version in package.json..."
 setVersion $version
 
-echo "Building..."
-npm run build
-
 echo "Publishing to npm..."
 npm publish --access=public
 

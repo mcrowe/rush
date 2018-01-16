@@ -4,17 +4,16 @@ Simple and fast front-end framework for prototyping or learning.
 
 ## Usage
 
-> npm install @mcrowe/rush --save
+> npm install -g @mcrowe/rush
+> rush new my-app
+> cd my-app
+> rush start
 
 ## Development
 
 Install npm modules:
 
 > npm install
-
-Run tests:
-
-> npm test
 
 ## Release
 

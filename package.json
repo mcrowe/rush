@@ -2,9 +2,11 @@
   "author": "Mitch Crowe <code@mitchcrowe.com> (http://www.mitchcrowe.com)",
   "description": "Simple and fast front-end framework for prototyping or learning.",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "files": [
     "lib/",
     "bin/"
@@ -13,8 +15,7 @@
   "main": "lib/index.js",
   "name": "@mcrowe/rush",
   "repository": "https://github.com/mcrowe/rush",
-  "scripts": {
-  },
+  "scripts": {},
   "version": "0.0.2",
   "bin": {
     "rush": "bin/rush.js"
