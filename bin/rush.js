@@ -5,8 +5,6 @@ const Rush = require('../lib')
 const { exec } = require('child_process')
 
 
-const VERSION = '0.1.3'
-
 if (process.argv.length < 3) {
   printUsage()
 }
@@ -23,6 +21,7 @@ switch (cmd) {
     Rush.createNewApp(appName)
     break
   case 'start':
+    console.log('Starting Rush ' + Rush.VERSION)
     Rush.startApp()
     break
   case 'upgrade':
@@ -31,7 +30,8 @@ switch (cmd) {
     break
   case 'version':
   case '-v':
-    console.log('Rush version ' + VERSION)
+  case '--version':
+    console.log('Rush version ' + Rush.VERSION)
     break
   default:
     console.log(`Invalid command '${cmd}'`)
