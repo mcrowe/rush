@@ -2,6 +2,7 @@
 
 
 const Rush = require('../lib')
+const { exec } = require('child_process')
 
 if (process.argv.length < 3) {
   printUsage()
@@ -21,6 +22,10 @@ switch (cmd) {
   case 'start':
     Rush.startApp()
     break
+  case 'upgrade':
+    console.log('Upgrading rush')
+    exec('npm install -g @mcrowe/rush')
+    break
   default:
     console.log(`Invalid command '${cmd}'`)
     printUsage()
@@ -36,6 +41,9 @@ rush new my-app
 
 # Start an existing app (when inside the app directory)
 rush start
+
+# Upgrade rush
+rush upgrade
   `)
   process.exit(0)
 }

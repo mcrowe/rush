@@ -57,7 +57,7 @@ on('click', '.fire-missiles', event => {
 })
 ```
 
-#### Parameters
+Parameters to the `on` function:
 
 1. **event**: The name of the event to handle (e.g. 'click', 'change', 'keydown', ...).
 2. **selector**: A CSS selector specifying what element(s) to handle this event on ([learn more about CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp)).
@@ -168,9 +168,20 @@ Note that html attribute values are always strings, and so the data values are s
 
 Views provide a way to share HTML template code between pages. They have not been implemented yet.
 
+### Getting information about the current route
+
+The current page and params can be accessed via the `currentRoute` variable:
+
+```js
+show('things', {id: 5})
+
+currentRoute.pageName // => 'things'
+currentRoute.params.id // => 5
+
+```
+
 ## TODO
 
-- Get the current page and current params
 - Shared views
 
 ## Development
