@@ -4,6 +4,9 @@
 const Rush = require('../lib')
 const { exec } = require('child_process')
 
+
+const VERSION = '0.1.3'
+
 if (process.argv.length < 3) {
   printUsage()
 }
@@ -25,6 +28,10 @@ switch (cmd) {
   case 'upgrade':
     console.log('Upgrading rush')
     exec('npm install -g @mcrowe/rush')
+    break
+  case 'version':
+  case '-v':
+    console.log('Rush version ' + VERSION)
     break
   default:
     console.log(`Invalid command '${cmd}'`)
