@@ -41,6 +41,8 @@ switch (cmd) {
 
 function printUsage() {
   console.log(`
+Rush (version ${Rush.VERSION})
+
 Usage:
 
 # Create a new app called "my-app"
