@@ -22,9 +22,10 @@ switch (cmd) {
     break
   case 'start':
     console.log('Starting Rush ' + Rush.VERSION)
-    Rush.startApp()
+    Rush.startDevServer()
     break
   case 'upgrade':
+  case 'update':
     console.log('Upgrading rush')
     exec('npm install -g @mcrowe/rush')
     break
@@ -32,6 +33,9 @@ switch (cmd) {
   case '-v':
   case '--version':
     console.log('Rush version ' + Rush.VERSION)
+    break
+  case 'build':
+    Rush.build()
     break
   default:
     console.log(`Invalid command '${cmd}'`)

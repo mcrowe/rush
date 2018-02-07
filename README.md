@@ -194,10 +194,12 @@ if (!loadState()) {
 }
 ```
 
+### Releasing
+
+Build your Rush app by running the command `rush build`. This will create a `dist/` directory containing your app, ready to be deployed onto a server. I would recommend using [surge](http://surge.sh/) to host your app. It is free and extremely easy. Once you install `surge`, you can deploy the `dist/` directory by running `surge dist`.
+
 ## TODO
 
-- Saving state
-- Publishing
 - Images
 - Shared views
 
