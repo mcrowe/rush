@@ -180,9 +180,27 @@ currentRoute.params.id // => 5
 
 ```
 
+### Saving State
+
+You can save the state at any time by calling `saveState()`. To load a saved state, use the following pattern:
+
+```js
+// Call loadState(). It returns true if there was a saved state (and loads it),
+// and false otherwise.
+if (!loadState()) {
+  // Initialize the state here, e.g.
+  state.counter = 5
+  // ...
+}
+```
+
 ## TODO
 
+- Saving state
+- Publishing
+- Images
 - Shared views
+
 
 ## Development
 
