@@ -201,6 +201,7 @@ Build your Rush app by running the command `rush build`. This will create a `dis
 ## TODO
 
 - Images
+- Babel
 - Shared views
 
 

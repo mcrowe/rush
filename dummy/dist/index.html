@@ -1,11 +1,50 @@
+<!doctype html>
 <html>
   <head>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <style>
+      
+  body {
+    font-family: 'Comic Sans MS', sans-serif;
+    box-sizing: border-box;
+    padding: 1em;
+    font-size: 18px;
+  }
 
-body {
-  background-color: #f93;
-}
-</style>
+  button {
+    border: 2px solid black;
+    background-color: #eee;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #ddd;
+  }
+
+  button:active {
+    background-color: white;
+  }
+
+  input[type=text] {
+    border: 2px solid black;
+    padding: 8px 16px;
+    color: black;
+  }
+
+  a {
+    color: #3498db;
+  }
+
+
+      
+
+    </style>
   </head>
   <body>
     <div id="app"></div>
@@ -23,11 +62,9 @@ body {
   }
 
   const template = _templates[currentRoute.pageName]
-  const html = template({
-    ..._helpers,
-    state,
-    params: currentRoute.params,
-  })
+  const context = Object.assign({}, _helpers, {state: state, params: currentRoute.params})
+  const html = template(context)
+
   _container.innerHTML = html
 }
 
@@ -37,19 +74,19 @@ function helper(name, handler) {
 
 function saveState() {
   localStorage.setItem('rush-state', JSON.stringify(state))
-  log('Saved state')
+  _log('Saved state')
 }
 
 function loadState() {
   const newStateString = localStorage.getItem('rush-state')
 
   if (newStateString) {
-    log('Loaded saved state')
+    _log('Loaded saved state')
     try {
       state = JSON.parse(newStateString)
       return true
     } catch (e) {
-      log('Failed to load saved state')
+      _log('Failed to load saved state')
       return false
     }
   } else {
@@ -73,17 +110,25 @@ function on(event, selector, handler) {
 
       switch (event) {
         case 'click':
-          handler({
-            ...syntheticEvent,
-            x: e.clientX,
-            y: e.clientY
-          })
+          handler(
+            Object.assign(
+              syntheticEvent,
+              {
+                x: e.clientX,
+                y: e.clientY
+              }
+            )
+          )
           break
         case 'change':
-          handler({
-            ...syntheticEvent,
-            value: e.target.value
-          })
+          handler(
+            Object.assign(
+              syntheticEvent,
+              {
+                value: e.target.value
+              }
+            )
+          )
           break
         default:
           handler(syntheticEvent)
@@ -119,7 +164,7 @@ function _log(msg) {
     </script>
     <script>
       ;(function () {
-        let pages = {"a":"\n<div>\n  <h1>A <%= magicCalculation(10) %></h1>\n  <p><strong><%= state.counter %></strong></p>\n  <button class=\"show-b\">Show B</button>\n</div>\n","b":"\n<div>\n  <h1>B <%= params.value * 2 %></h1>\n  <p><strong><%= state.counter %></strong></p>\n  <button class=\"show-a\">Show A</button>\n</div>\n"}
+        let pages = {"a":"\n<div>\n  <h1>A <%= magicCalculation(10) %></h1>\n  <p><strong><%= state.counter %></strong></p>\n  <input type=\"text\" placeholder=\"Your name\" />\n  <button class=\"show-b\">Show B</button>\n\n  <a href=\"...\">A link</a>\n</div>\n","b":"\n<div>\n  <h1>B <%= params.value * 2 %></h1>\n  <p><strong><%= state.counter %></strong></p>\n  <button class=\"show-a\">Show A</button>\n</div>\n"}
 
         for (const name in pages) {
           const page = pages[name]
