@@ -15,4 +15,8 @@ on('click', '.show-a', () => {
   show('a')
 })
 
+on('click', '.parent', event => {
+  console.log('data', event.data)
+})
+
 show('a')
